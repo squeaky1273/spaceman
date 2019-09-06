@@ -15,6 +15,7 @@ def load_word():
     return secret_word
 
 def is_word_guessed(secret_word, letters_guessed):
+    
     '''
     A function that checks if all the letters of the secret word have been guessed.
     Args:
@@ -23,10 +24,9 @@ def is_word_guessed(secret_word, letters_guessed):
     Returns:
         bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     '''
-    pass
 
 def get_guessed_word(secret_word, letter_guessed):
-    dashes = "-" * (secret_word)
+    dashes = "-" * len(secret_word)
     guesses_left = 7
 
     print(dashes)
@@ -45,6 +45,10 @@ def is_guess_in_word(guess, secret_word):
         print ("Guesses can only be 1 letter.")
     elif guess in secret_word:
         print ("Letter is in the secret word.")
+        dashes = update_dashes(secret_word, dashes, guess)
+    else:
+        print ("Letter isn't in the secret word.")
+        guesses_left -= 1
     '''
     A function to check if the guessed letter is in the secret word
     Args:
