@@ -8,13 +8,13 @@ def load_word():
            string: The secret word to be used in the spaceman guessing game
     '''
     f = open('words.txt', 'r')
-    words_list = words_list[0].split('')
     words_list = f.readlines()
     f.close()
 
+    words_list = words_list[0].split('')
     secret_word = random.choice(words_list)
     return secret_word
-
+guess = input("Please enter in a guess: ")
 def is_word_guessed(secret_word, letters_guessed):
     '''
     A function that checks if all the letters of the secret word have been guessed.
@@ -58,18 +58,23 @@ def is_guess_in_word(guess, secret_word):
         bool: True if the guess is in the secret_word, False otherwise
     '''
 def win_or_lose(guesses_left, secret_word):
-        dashes = "-" * len(secret_word)
-        guesses_left = 7
+    dashes = "-" * len(secret_word)
+    guesses_left = 7
 
-        print(dashes)
-        print(str(guesses_left))
+    print(dashes)
+    print(str(guesses_left))
+
+    if guesses_left < 0:
+        print ("You lose. The secret word was: " + str(secret_word))
+    else:
+        print ("Congratulations! You win!")
+
 def spaceman(secret_word):
     '''
     A function that controls the game of spaceman. Will start spaceman in the command line.
     Args:
       secret_word (string): the secret word to guess.
     '''
-
 
 secret_word = load_word()
 spaceman(secret_word)
