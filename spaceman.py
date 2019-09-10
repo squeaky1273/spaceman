@@ -75,7 +75,7 @@ def spaceman(secret_word):
     dashes = "-" * len(secret_word)
     guesses_left = 7
     print(guesses_left)
-    letters_guessed = " "
+    letters_guessed = ""
     letters_guessed = []
 
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
@@ -94,17 +94,18 @@ def spaceman(secret_word):
         if is_guess_in_word(guess, secret_word) == True:
             print ("Letter is in the secret word.")
             print(guesses_left)
-            print(dashes + guess)
+            print(dashes)
+            dashes = get_guessed_word(secret_word, letters_guessed)
         elif not is_guess_in_word(guess, secret_word):
             guesses_left -= 1
             print ("Letter isn't in the secret word.")
             print(dashes)
 
     #TODO: show the guessed word so far
-    print("guessed_word: " + get_guessed_word(secret_word, letters_guessed))
+    print("guessed word: " + get_guessed_word(secret_word, letters_guessed))
 
     #TODO: check if the game has been won or lost
-    if letters_guessed == secret_word:
+    if get_guessed_word == secret_word:
         return ("Congratulations! You win!")
     elif guesses_left == 0:
         print ("Game over. The secret word was: " + str(secret_word))
