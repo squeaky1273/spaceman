@@ -99,7 +99,6 @@ def spaceman(secret_word):
             guesses_left -= 1
             print ("Letter isn't in the secret word.")
 
-    #print(get_guessed_word(secret_word, letters_guessed))
 
     if secret_word == True:
         print ("Congratulations! You win!")
