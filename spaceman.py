@@ -93,8 +93,8 @@ def spaceman(secret_word):
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
         if is_guess_in_word(guess, secret_word) == True:
             print ("Letter is in the secret word.")
-            print(guesses_left)
             print(dashes)
+            print(guesses_left)
             dashes = get_guessed_word(secret_word, letters_guessed)
         elif not is_guess_in_word(guess, secret_word):
             guesses_left -= 1
@@ -106,7 +106,7 @@ def spaceman(secret_word):
 
     #TODO: check if the game has been won or lost
     if get_guessed_word == secret_word:
-        return ("Congratulations! You win!")
+        print ("Congratulations! You win!")
     elif guesses_left == 0:
         print ("Game over. The secret word was: " + str(secret_word))
 
