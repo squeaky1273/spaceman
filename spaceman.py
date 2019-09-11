@@ -26,10 +26,10 @@ def is_word_guessed(secret_word, letters_guessed):
     '''
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
     for letter in secret_word:
-        if letter in letters_guessed:
-            return True
-        else:
+        if letter not in letters_guessed:
             return False
+        else:
+            return True
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
